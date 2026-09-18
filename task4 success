@@ -1,0 +1,29 @@
+const EventEmitter = require("events");
+
+const tracker = new EventEmitter();
+
+// Login event
+tracker.on("login", (name) => {
+    console.log(name + " logged in.");
+});
+
+// Course registration event
+tracker.on("courseRegistration", (course) => {
+    console.log("Course registered: " + course);
+});
+
+// Notification event
+tracker.on("notification", (message) => {
+    console.log("Notification: " + message);
+});
+
+// Logout event
+tracker.on("logout", (name) => {
+    console.log(name + " logged out.");
+});
+
+// Trigger events
+tracker.emit("login", "Shubhangi");
+tracker.emit("courseRegistration", "Full Stack Development");
+tracker.emit("notification", "Your course registration was successful.");
+tracker.emit("logout", "Shubhangi");
